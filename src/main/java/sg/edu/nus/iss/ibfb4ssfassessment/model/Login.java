@@ -20,5 +20,13 @@ public class Login {
     @NotNull(message = "Please enter a birthday.")
     @Past(message = "Birthday must be in the past.")
     private Date birthDate;
+
+    public Login() {
+    }
+
+    public Login(String email, Date birthDate) {
+        this.email = email;
+        this.birthDate = birthDate;
+    }
     
 }
