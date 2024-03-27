@@ -28,7 +28,7 @@ public class LoginController {
     }
 
     // TODO: Task 7
-    @PostMapping
+    @PostMapping("/login")
     public String processlogin(HttpSession sess, Model model,
             @ModelAttribute("login") @Valid Login login, BindingResult bindings) {
                 
@@ -42,7 +42,7 @@ public class LoginController {
         } else {
             //Login newLogin = todoService.createTodoWithoutDate(todo);
             //model.addAttribute("login", TodoWithId);
-            sess.setAttribute("user", login);
+            //sess.setAttribute("user", login);
     
             return "view1";
         }

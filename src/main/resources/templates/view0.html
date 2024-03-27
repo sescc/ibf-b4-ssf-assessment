@@ -16,12 +16,21 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" name="email" class="form-control" th:field="*{email}" required>
-            <small>We'll never share your email with anyone else.</small>
+            <small>We'll never share your email with anyone else.</small><br />
+            
+            <span style="color:#CC0000;"
+                th:if="${#fields.hasErrors('email')}"
+                th:errors="*{email}" th:errorclass="error">
+            </span>
         </div>
 
         <div class="mb-3">
             <label for="birthDate" class="form-label">Date Of Birth</label>
-            <input type="date" name="birthDate" class="form-control" th:field="*{birthDate}" required>
+            <input type="date" name="birthDate" class="form-control" th:field="*{birthDate}">
+            <span style="color:#CC0000;"
+                th:if="${#fields.hasErrors('birthDate')}"
+                th:errors="*{birthDate}" th:errorclass="error">
+            </span>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

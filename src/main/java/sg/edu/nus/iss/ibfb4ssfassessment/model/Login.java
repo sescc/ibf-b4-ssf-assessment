@@ -12,14 +12,14 @@ import jakarta.validation.constraints.Size;
 
 public class Login implements Serializable {
 
-    @NotNull(message = "Please enter a email address.")
-    @Email(message = "Invalid email format.")
-    @Size(max = 50, message = "Maximum length of 50 characters only.")
+    @NotNull(message = "Error: Please enter a email address.")
+    @Email(message = "Error: Invalid email.")
+    @Size(max = 50, message = "Error: Email address should not exceed 50 characters.")
     private String email;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull(message = "Please enter a birthday.")
-    @Past(message = "Birthday must be in the past.")
+    @NotNull(message = "Error: Please enter a valid birthday.")
+    @Past(message = "Error: Birthday must be in the past.")
     private Date birthDate;
 
     public Login() {
