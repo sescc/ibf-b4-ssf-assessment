@@ -22,7 +22,7 @@ RUN mvn package -Dmaven.test.skip=true
 FROM maven:3-eclipse-temurin-21
 
 # Dir to contain src and target
-WORKDIR /app_run
+WORKDIR /app
 
 COPY --from=builder /app/target/ibf-b4-ssf-assessment-0.0.1-SNAPSHOT.jar ssf.jar
 
