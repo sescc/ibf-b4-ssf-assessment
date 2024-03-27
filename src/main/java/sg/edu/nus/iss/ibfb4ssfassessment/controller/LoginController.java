@@ -32,25 +32,21 @@ public class LoginController {
     public String processlogin(HttpSession sess, Model model,
             @ModelAttribute("login") @Valid Login login, BindingResult bindings) {
                 
-                if (bindings.hasErrors()) {
-                    model.addAttribute("login", login);
-                    System.out.println("Global error: " + bindings.getGlobalErrors());
-                    System.out.println("Field error:" + bindings.getFieldErrors());
-                    
-                    return "view0";
-
-                } else {
-                    Login newLogin = todoService.createTodoWithoutDate(todo);
-                    model.addAttribute("login", TodoWithId);
-                    sess.setAttribute("user", login);
+        if (bindings.hasErrors()) {
+            model.addAttribute("login", login);
+            System.out.println("Global error: " + bindings.getGlobalErrors());
+            System.out.println("Field error:" + bindings.getFieldErrors());
             
-                    return "view1";
-                }
+            return "view0";
 
-
-                }
+        } else {
+            //Login newLogin = todoService.createTodoWithoutDate(todo);
+            //model.addAttribute("login", TodoWithId);
+            sess.setAttribute("user", login);
+    
+            return "view1";
+        }
         
-        return "";
     }
     
 
