@@ -19,15 +19,15 @@ public class LoginController {
     
 
 
-    // TODO: Task 6
+    // Task 6
     @GetMapping(path={"/", "/index.html"})
-    public String login(Model model) {
-        model.addAttribute("login", new Login());
+    public String login() {
+        //model.addAttribute("login", new Login());
 
         return "view0";
     }
 
-    // TODO: Task 7
+    // Task 7
     @PostMapping("/login")
     public String processlogin(HttpSession sess, Model model,
             @ModelAttribute("login") @Valid Login login, BindingResult bindings) {
@@ -38,14 +38,12 @@ public class LoginController {
             System.out.println("Field error:" + bindings.getFieldErrors());
             
             return "view0";
-
-        } else {
-            //Login newLogin = todoService.createTodoWithoutDate(todo);
-            //model.addAttribute("login", TodoWithId);
-            //sess.setAttribute("user", login);
-    
-            return "view1";
         }
+        
+        sess.setAttribute("email", login.getEmail());
+        sess.setAttribute("birthDate", login.getBirthDate());
+    
+        return "view1";
         
     }
     

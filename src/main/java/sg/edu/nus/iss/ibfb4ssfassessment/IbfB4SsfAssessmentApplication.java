@@ -23,7 +23,7 @@ import sg.edu.nus.iss.ibfb4ssfassessment.util.Utils;
 public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 
 	// @Autowired
-	// DatabaseService databaseSvc;
+	// DatabaseService databaseService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(IbfB4SsfAssessmentApplication.class, args);
@@ -31,19 +31,19 @@ public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// FileService fs = new FileService();
-		// MovieRepo movieRepo = new MovieRepo();
-		// DatabaseService databaseSvc = new DatabaseService();
+		FileService fs = new FileService();
+		//MovieRepo movieRepo = new MovieRepo();
+		DatabaseService databaseService = new DatabaseService();
 
-		// // Task 01
-		// // System.out.println(fs.readFile(Utils.MOVIE_JSON).toString());
-		// List<Movie> movielist = fs.readFile(Utils.MOVIE_JSON);
-		// System.out.println(movielist.toString());
+		// Task 01
+		// System.out.println(fs.readFile(Utils.MOVIE_JSON).toString());
+		List<Movie> movielist = fs.readFile(Utils.MOVIE_JSON);
+		System.out.println(movielist.toString());
 
-		// // Task 02
-		// for (Movie movie: movielist) {
-		// 	databaseSvc.saveRecord(movie);
-		// }
+		// Task 02
+		for (Movie movie: movielist) {
+			databaseService.saveRecord(movie);
+		}
 		
 	}
 

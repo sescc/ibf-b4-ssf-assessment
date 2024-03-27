@@ -1,6 +1,7 @@
 package sg.edu.nus.iss.ibfb4ssfassessment.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;

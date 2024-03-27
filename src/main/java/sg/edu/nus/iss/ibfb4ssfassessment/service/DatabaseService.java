@@ -24,20 +24,22 @@ public class DatabaseService {
 
     @Autowired
     @Qualifier(Utils.REDIS_MAP)
-    RedisTemplate <String, String> template;
+    RedisTemplate<String, String> template;
+
+    HashOperations<String, Integer, String> hashOps;
 
     // Task 2 (Save to Redis Map)
     public void saveRecord(Movie movie) {
-        HashOperations<String, Integer, String> hashOps = template.opsForHash();
+        hashOps = template.opsForHash();
         hashOps.putIfAbsent(Utils.KEY_MOVIE, Integer.parseInt(movie.getMovieId().toString()), movie.toJsonString());
         // TODO: removetest
-        System.out.printf("Movie %s saved to Redis.", movie.getTitle());
+        //System.out.printf("Movie %s saved to Redis.", movie.getTitle());
     }
 
     // Task 3 (Map)
-    // Note to marker: I changed this given "getNumberOfEvents()" method name to "getNumberOfMovies()" as the latter was what's mentioned in the question
+    // Changed the given "getNumberOfEvents()" method name to "getNumberOfMovies()" as what's mentioned in the question
     public long getNumberOfMovies() {
-        HashOperations<String, Integer, String> hashOps = template.opsForHash();
+        hashOps = template.opsForHash();
 
         return hashOps.size(Utils.KEY_MOVIE);
     }
@@ -48,7 +50,7 @@ public class DatabaseService {
 
     // Task 4 (Map)
     public Movie getMovieById(Integer movieId) throws ParseException {
-        HashOperations<String, Integer, String> hashOps = template.opsForHash();
+        hashOps = template.opsForHash();
         String movieStr = hashOps.get(Utils.KEY_MOVIE, movieId);
 
         return repo.convertJsonToMovieObject(movieStr);
@@ -56,7 +58,7 @@ public class DatabaseService {
 
     // Task 5
     public List<Movie> getAllMovies() {
-        HashOperations <String, Integer, String> hashOps = template.opsForHash();
+        hashOps = template.opsForHash();
         List<Movie> movielist = new ArrayList<>();
         Map<Integer, String> movieMap = hashOps.entries(Utils.KEY_MOVIE);
 

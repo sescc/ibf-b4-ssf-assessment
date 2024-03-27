@@ -19,7 +19,7 @@ public class RedisConfig {
     private String redisHost;
 
     @Value("${spring.data.redis.port}")
-    private int redisPort;
+    private Integer redisPort;
 
     @Value("${spring.data.redis.username}")
     private String redisUser;
@@ -46,7 +46,7 @@ public class RedisConfig {
         return jedisConnFac;
     }
 
-    @Bean(Utils.REDIS_MAP)
+    @Bean
     public RedisTemplate<String, String> redisTemplate() {
 
         RedisTemplate<String, String> template = new RedisTemplate<>();

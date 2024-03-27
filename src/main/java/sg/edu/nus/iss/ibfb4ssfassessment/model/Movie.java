@@ -29,7 +29,7 @@ public class Movie {
 
     public Movie(Integer movieId, String title, String year, String rated, Long releaseDate, String runTime,
             String genre, String director, Double rating, Integer count) throws ParseException {
-        this.movieId = Integer.parseInt(UUID.randomUUID().toString());
+        this.movieId = movieId;
         this.title = title;
         this.year = year;
         this.rated = rated;
