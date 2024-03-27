@@ -22,8 +22,8 @@ import sg.edu.nus.iss.ibfb4ssfassessment.util.Utils;
 @SpringBootApplication
 public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 
-	@Autowired
-	DatabaseService databaseSvc;
+	// @Autowired
+	// DatabaseService databaseSvc;
 
 	public static void main(String[] args) {
 		SpringApplication.run(IbfB4SsfAssessmentApplication.class, args);

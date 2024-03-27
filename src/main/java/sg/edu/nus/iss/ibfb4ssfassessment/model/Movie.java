@@ -135,7 +135,7 @@ public class Movie {
     public String toJsonString() {
 
         JsonObjectBuilder movieBuilder = Json.createObjectBuilder()
-                //.add("id", movieId)
+                .add("id", movieId)
                 .add("title", title)
                 .add("year", year)
                 .add("rated", rated)
