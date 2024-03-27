@@ -32,19 +32,9 @@ public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 		DatabaseService databaseSvc = new DatabaseService();
 
 		List<Movie> movielist = fs.readFile(Utils.MOVIE_JSON);
-
-		// try (InputStream is = new ByteArrayInputStream(payload.getBytes())) {
-		// 	JsonReader reader = Json.createReader(is);
-		// 	JsonArray jArray = reader.readArray();
-			
-		// 	for(int i = 0; i < jArray.size(); i++){
-		// 		String jsonObject = jArray.getJsonObject(i).toString();				
-		// 		Movie movie = movieRepo.convertJsonToMovieObject(jsonObject);				
-		// 		databaseSvc.saveRecord(movie);
-		// 	}
-		// } 
 		
-		System.out.println("Data saved to Redis successfully.");
+		//System.out.println("Data saved to Redis successfully.");
+		System.out.println(movielist);
 	}
 
 }
