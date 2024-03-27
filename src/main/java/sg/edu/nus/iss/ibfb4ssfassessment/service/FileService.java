@@ -26,7 +26,7 @@ import sg.edu.nus.iss.ibfb4ssfassessment.util.Utils;
 @Service
 public record FileService() {
 
-    // TODO: Task 1
+    // Task 1
     public List<Movie> readFile(String fileName) throws IOException, ParseException {
         StringBuilder sboutput = new StringBuilder();
         File file = Paths.get(fileName).toFile();

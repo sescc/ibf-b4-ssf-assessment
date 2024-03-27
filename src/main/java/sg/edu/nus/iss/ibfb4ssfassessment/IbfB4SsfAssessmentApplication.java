@@ -45,8 +45,6 @@ public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 			databaseSvc.saveRecord(movie);
 		}
 		
-		//System.out.println("Data saved to Redis successfully.");
-		
 	}
 
 }
