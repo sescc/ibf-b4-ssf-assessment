@@ -46,7 +46,7 @@ public class RedisConfig {
         return jedisConnFac;
     }
 
-    @Bean
+    @Bean(Utils.REDIS_MAP)
     public RedisTemplate<String, String> redisTemplate() {
 
         RedisTemplate<String, String> template = new RedisTemplate<>();

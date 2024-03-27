@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.ibfb4ssfassessment.model;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,7 +10,7 @@ import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
 
-public class Movie {
+public class Movie implements Serializable {
     
     private Integer movieId;
     private String title;

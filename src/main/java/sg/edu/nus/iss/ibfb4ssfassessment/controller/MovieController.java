@@ -44,8 +44,11 @@ public class MovieController {
     }
 
     // TODO: Task 9
-    @GetMapping(path = "@{/book/{id}(id=${movie.id})}")
-    public String bookMovie(Model model, HttpSession sess, Movie movie, Login login) {
+    @GetMapping(path = "/book/{id}")
+    public String bookMovie(@PathVariable("id") Integer id, 
+            Model model, HttpSession sess, 
+            Movie movie, Login login) {
+        
         LocalDate localBirthDate = login.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Period p = Period.between(localBirthDate, LocalDate.now());
         int age = p.getYears();
@@ -58,6 +61,8 @@ public class MovieController {
         }
 
         model.addAttribute("title", movie.getTitle());
+        model.addAttribute("count", movie.getCount() + 1);
+
         return "BookSuccess";
     }
 
