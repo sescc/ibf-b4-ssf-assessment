@@ -29,5 +29,10 @@ public class MovieRepo {
         return new Movie(movieId, title, year, rated, releaseDate, runTime, genre, director, rating, count);
 
     }
+
+    public Movie getMovie(Integer index) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getMovie'");
+    }
     
 }

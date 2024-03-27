@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +22,9 @@ import sg.edu.nus.iss.ibfb4ssfassessment.util.Utils;
 @SpringBootApplication
 public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 
+	@Autowired
+	DatabaseService databaseSvc;
+
 	public static void main(String[] args) {
 		SpringApplication.run(IbfB4SsfAssessmentApplication.class, args);
 	}
@@ -31,10 +35,18 @@ public class IbfB4SsfAssessmentApplication implements CommandLineRunner {
 		MovieRepo movieRepo = new MovieRepo();
 		DatabaseService databaseSvc = new DatabaseService();
 
+		// Task 01
+		// System.out.println(fs.readFile(Utils.MOVIE_JSON).toString());
 		List<Movie> movielist = fs.readFile(Utils.MOVIE_JSON);
+		System.out.println(movielist.toString());
+
+		// Task 02
+		for (Movie movie: movielist) {
+			databaseSvc.saveRecord(movie);
+		}
 		
 		//System.out.println("Data saved to Redis successfully.");
-		System.out.println(movielist);
+		
 	}
 
 }
